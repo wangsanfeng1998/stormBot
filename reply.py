@@ -21,8 +21,8 @@ else:
         replied_to_posts = replied_to_posts.split("\n")
         replied_to_posts = list(filter(None, replied_to_posts))
 
-# Get the top 5 values from our subreddit
-subreddit = reddit.subreddit('Stormlight_Archive')
+# Get the top 15 values from our subreddit
+subreddit = reddit.subreddit('pythonforengineers')
 for submission in subreddit.hot(limit=15):
     print(submission.title)
 
@@ -30,7 +30,7 @@ for submission in subreddit.hot(limit=15):
     if submission.id not in replied_to_posts:
 
         # Do a case insensitive search
-        if re.search("Stormlight", submission.title, re.IGNORECASE):
+        if re.search("i love python", submission.title, re.IGNORECASE):
             # Reply to the post
             submission.reply("Love Stormlight, always good to see another fan!")
             print("Bot replying to : ", submission.title)
