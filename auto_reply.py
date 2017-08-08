@@ -21,7 +21,7 @@ def run_bot(r):
 			#comment.reply("Mistborn is great!")
 			#print ("Responded to comment" + comment.id)
 			processed.append(comment.id)
-			print(processed[len(processed) - 1].body)
+			print(comment.body)
 
 r = bot_login()
 
@@ -29,7 +29,7 @@ while True:
 	try:
 		run_bot(r)
 	except:
-		time.sleep(10)
+		time.sleep(15)
  
 #target_text = "stormlight"
 #response_text = "I love Stormlight! Great to see a fellow fan"
