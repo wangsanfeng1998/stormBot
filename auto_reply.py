@@ -16,7 +16,7 @@ def bot_login():
 
 def run_bot(r):
 	processed = []
-	for comment in r.subreddit("fantasy").comments(limit = 5):
+	for comment in r.subreddit("fantasy").comments(limit = 10):
 		if "e" in comment.body and comment.id not in processed:
 			#comment.reply("Mistborn is great!")
 			#print ("Responded to comment" + comment.id)
