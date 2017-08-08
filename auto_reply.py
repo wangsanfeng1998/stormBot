@@ -1,5 +1,6 @@
 import praw
 import config
+import time
 #import pdb
 #import re
 #import os
@@ -15,17 +16,20 @@ def bot_login():
 
 def run_bot(r):
 	processed = []
-	for comment in r.subreddit("fantasy").comments(limit = 25):
-		if "mistborn" in comment.body and comment.id not in processed:
-			comment.reply("Mistborn is great! Hope to see a video game soon")
-			print ("Responded to comment" + comment.id)
+	for comment in r.subreddit("fantasy").comments(limit = 5):
+		if "e" in comment.body and comment.id not in processed:
+			#comment.reply("Mistborn is great!")
+			#print ("Responded to comment" + comment.id)
 			processed.append(comment.id)
+			print(processed[len(processed) - 1].body)
 
 r = bot_login()
 
 while True:
-	run_bot(r)
-
+	try:
+		run_bot(r)
+	except:
+		time.sleep(10)
  
 #target_text = "stormlight"
 #response_text = "I love Stormlight! Great to see a fellow fan"
