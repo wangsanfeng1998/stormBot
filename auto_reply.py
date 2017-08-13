@@ -15,7 +15,6 @@ def bot_login():
 	return r
 
 def run_bot(r):
-	processed = []
 	for comment in r.subreddit("fantasy").comments(limit = 10):
 		if "e" in comment.body and comment.id not in processed:
 			#comment.reply("Mistborn is great!")
@@ -24,6 +23,7 @@ def run_bot(r):
 			print(comment.body)
 
 r = bot_login()
+processed = []
 
 while True:
 	try:
